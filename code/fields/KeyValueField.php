@@ -78,7 +78,7 @@ class KeyValueField extends MultiValueTextField {
 
 		if (count($values)) {
 			$attrs = array(
-				'class' => 'text mventryfield mvdropdown ' . ($this->extraClass() ? $this->extraClass() : ''),
+				'class' => 'text dropdown mventryfield mvdropdown ' . ($this->extraClass() ? $this->extraClass() : ''),
 				'id' => $this->id().MultiValueTextField::KEY_SEP.$number,
 				'name' => $name,
 				'tabindex' => $this->getAttribute('tabindex')
@@ -86,7 +86,7 @@ class KeyValueField extends MultiValueTextField {
 
 			if($this->disabled) $attrs['disabled'] = 'disabled';
 
-			return self::create_tag('select', $attrs, $options);
+			return '<div class="fieldholder-small mvfieldholder-small">'.self::create_tag('select', $attrs, $options).'</div>';
 		} else {
 			$attrs = array(
 				'class' => 'text mventryfield mvtextfield ' . ($this->extraClass() ? $this->extraClass() : ''),
